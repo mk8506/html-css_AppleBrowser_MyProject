@@ -8,60 +8,88 @@
 
 /*main nav*/
 
-/* 1151px~ main*/
-#main-nav-ul  {
-  display: flex;
+/* 1066px~ main*/
+/* @media screen and (min-width: 1101px) {} */
+.main-nav {
+  display: flex; /* child한테 적용 */
   justify-content: center;
-  margin: 20px 100px;
+  align-items: center;
+
+  .main-nav-ul  {  
+    width: 880px; /* 좌우 공간 */
+    margin: 20px 0;  /* 상하 공간*/
+    display: flex; /* child한테 적용 */
+    justify-content: center;
+    align-items: center;
+  
+    .top-items-letters {
+      list-style: none;
+      text-align: center;
+      color: rgb(171, 171, 171);
+      font-family:'Segoe UI', 'Tahoma', 'Verdana', 'sans-serif';
+      font-weight: medium;
+    }
+  
+    .top-items-images {
+      list-style: none;
+      text-align: center;
+      
+      .button-images {
+        width: 15px;
+        height: auto;
+      }
+    }
+    @media screen and (min-width: 1066px) {
+      #li-1 {width: 140.8px;}
+      #li-2 {width: 128px;}
+      #li-3 {width: 128px;}
+      #li-4 {width: 153.6px;}
+      #li-5 {width: 153.6px;}
+      #li-6 {width: 153.6px;}
+      #li-7 {width: 179.2px;}
+      #li-8 {width: 256px;}
+      #li-9 {width: 281.6px;}
+      #li-10 {width: 243.2px;}
+      #li-11 {width: 204.8px;}
+      
+      #ic-1 {width: 100px;}
+      #ic-2 {width: 100px;}
+      #ic-3 {width: 100px;}
+    }
+  }
 }
-.top-items-letters {
-  padding: 0px auto;
-  list-style: none;  
-  font-size: 12px;
-  color: rgb(171, 171, 171);
-  font-family:'Segoe UI', 'Tahoma', 'Verdana', 'sans-serif';
-  font-weight: medium;
-  text-align: center;
-}
-.top-items-images {
-  padding: 0 auto;
-  list-style: none;
-  text-align: center;
-}
-.button-images {
-  padding: 0 auto;
-  width: 15px;
-  height: auto;
-  text-align: center;
-}
 
 
-/* 1200~1399px */
-@media screen and (max-width: 1150px) and (min-width: 1001px) {
 
-.top-items-images {
-  width: 3.5%;
-}
 
-#li-1 {width: 5.5%;}
-#li-2 {width: 5%;}
-#li-3 {width: 5%;}
-#li-4 {width: 6%;}
-#li-5 {width: 6%;}
-#li-6 {width: 6%;}
-#li-7 {width: 7%;}
-#li-8 {width: 10%;}
-#li-9 {width: 11%;}
-#li-10 {width: 9.5%;}
-#li-11 {width: 8%;}
 
+/* 851~1065px */
+@media screen and (max-width: 1065px) and (min-width: 851px) {
+
+  #li-1 {width: 11%;}
+  #li-2 {width: 10%;} 
+  #li-3 {width: 10%;}
+  #li-4 {width: 12%;}
+  #li-5 {width: 12%;}
+  #li-6 {width: 12%;}
+  #li-7 {width: 14%;}
+  #li-8 {width: 20%;}
+  #li-9 {width: 22%;}
+  #li-10 {width: 19%;}
+  #li-11 {width: 16%;} 
+
+  #ic-1 {width: 8%;}
+  #ic-2 {width: 8%;}
+  #ic-3 {width: 8%;}
+  /* value in pixels = (value in other unit) * (parent width in pixels) / 100 */
+  /* parent width = device-width = 1280px 근데 좌우 margin은 뭘까.. */
 }
 
 
-/* ~1199px */
+/* ~850px */
 
-@media screen and (max-width: 1000px) {
-  #main-nav-ul {
+@media screen and (max-width: 850px) {
+  .main-nav-ul {
     visibility: hidden;
   }
 }
@@ -75,6 +103,7 @@
   display: block;
   color: black;
   text-decoration: none;
+  font-size: 12px;
 }
 .link-style-nav:hover {
   font-weight: bold;
@@ -88,19 +117,19 @@
 }
 
 /* 2.5 right ul */
-#right-list {
+.right-list {
   display: flex;
   justify-content: space-between;
 }
 
 /* 3. right parent element */
-#right-container {
+.right-container {
   display: flex;
   justify-content: flex-end;
 }
 
 /* 5. iMac item only li :start */
-#go-to-itself-iMac {
+.go-to-itself-iMac {
   padding: 5px 10px;
   list-style: none;
   margin-right: 600px;
@@ -110,14 +139,14 @@
 }
 
 /* 6. Second nav total */
-#Imac-nav-ul {
+.Imac-nav-ul {
   display: flex;
   justify-content: center;
 }
 
 
 .link-style-two {
-  background-color: #6C6AFD;
+  background-color: .6C6AFD;
   color: white;
   padding: 5px;
   text-decoration: none;
@@ -139,7 +168,7 @@
 
 
 
-#discount-information {
+.discount-information {
   display: block;
   padding: 13px 0;
   border-top: 0.5px solid rgb(193, 193, 193);
@@ -153,7 +182,7 @@
 
 /* first-photo */
 /* main the largest */
-#first-photo {
+.first-photo {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -162,7 +191,7 @@
 
 /* 중간 */
 @media screen and (max-width: 1000px) {
-  #first-photo {
+  .first-photo {
     width: 850px;
   }
 }
