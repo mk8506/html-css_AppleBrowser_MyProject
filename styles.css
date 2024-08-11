@@ -8,7 +8,7 @@
 
 /*main nav*/
 
-/* 1066px~ main*/
+/* 1066px~ main 사이 공간 고정 */
 /* @media screen and (min-width: 1101px) {} */
 .main-nav {
   display: flex; /* child한테 적용 */
@@ -16,8 +16,8 @@
   align-items: center;
 
   .main-nav-ul  {  
-    width: 880px; /* 좌우 공간 */
-    margin: 20px 0;  /* 상하 공간*/
+    width: 840px; /* 좌우 공간 이거 괜찮은 거임?*/
+    margin: 10px 0;  /* 상하 공간*/
     display: flex; /* child한테 적용 */
     justify-content: center;
     align-items: center;
@@ -25,9 +25,6 @@
     .top-items-letters {
       list-style: none;
       text-align: center;
-      color: rgb(171, 171, 171);
-      font-family:'Segoe UI', 'Tahoma', 'Verdana', 'sans-serif';
-      font-weight: medium;
     }
   
     .top-items-images {
@@ -58,12 +55,12 @@
     }
   }
 }
+/* 중첩이면 & 넣어야함 8/
 
 
 
 
-
-/* 851~1065px */
+/* 851~1065px 사이 공간 줄어듦 */
 @media screen and (max-width: 1065px) and (min-width: 851px) {
 
   #li-1 {width: 11%;}
@@ -81,12 +78,10 @@
   #ic-1 {width: 8%;}
   #ic-2 {width: 8%;}
   #ic-3 {width: 8%;}
-  /* value in pixels = (value in other unit) * (parent width in pixels) / 100 */
-  /* parent width = device-width = 1280px 근데 좌우 margin은 뭘까.. */
 }
 
 
-/* ~850px */
+/* ~850px hidden */
 
 @media screen and (max-width: 850px) {
   .main-nav-ul {
@@ -98,65 +93,115 @@
 
 /* 1. 4. iMac nav list :iMac and other four*/
 /* all nav link style :hover bold*/
+:root {
+  --nav-hover-color: black;
+  --nav-color: rgb(100,100,100);
+  --nav-font-family: 'Roboto', 'Poppins', 'Inter';
+}
 .link-style-nav, .link-style-nav:visited {
   background-color: transparent;
   display: block;
-  color: black;
+  color: var(--nav-color);
+  font-family: var(--nav-font-family); 
+  font-weight: medium;
   text-decoration: none;
   font-size: 12px;
 }
 .link-style-nav:hover {
-  font-weight: bold;
+  color: var(--nav-hover-color); 
 }
 
-/* 2. right items li :center */
-.right-items {
-  padding: 5px 10px;
-  list-style: none;
-  font-family:'Segoe UI', 'Tahoma', 'Verdana', 'sans-serif';
-}
 
-/* 2.5 right ul */
-.right-list {
-  display: flex;
-  justify-content: space-between;
-}
-
-/* 3. right parent element */
-.right-container {
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* 5. iMac item only li :start */
-.go-to-itself-iMac {
-  padding: 5px 10px;
-  list-style: none;
-  margin-right: 600px;
-  font-size: 20px;
-  font-family:'Segoe UI', 'Tahoma', 'Verdana', 'sans-serif';
-  font-weight: 500;
-}
+/* main LR center 유지, top-nav와 같음
+  중간 R만 왼쪽으로, 사이 공간 유지
+  작음 R만 hidden */
 
 /* 6. Second nav total */
-.Imac-nav-ul {
+.Second-nav {
   display: flex;
   justify-content: center;
+
+  /* fixed */
+  /*
+  position: fixed;
+  position: absolute;
+  z-index: 2;
+  */
+
+  /* 3. right parent element */
+  .right-container {
+    display: flex;
+    justify-content: flex-end;
+  
+    /* 2.5 right ul */
+    .right-list {
+      border: 1px solid red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 10px 0;  /* 상하 공간*/
+      width: 350px; /* 좌우 공간 */
+          
+      /* 2. right items li :center */
+      .right-items {
+        border: 1px solid yellowgreen;
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+      }
+    }
+    
+  }
+    
+  /* 5. iMac item only li :start */
+  &:first-child {
+    border: 1px solid purple;
+    list-style: none;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+
+  /* menu */
+  .menu {
+    visibility: hidden;
+  }
+
+
 }
 
 
-.link-style-two {
-  background-color: .6C6AFD;
-  color: white;
-  padding: 5px;
+@media screen and (min-width: 501px) {
+  #li-a {width: 100px;}
+  #li-b1 {width: 70px;}
+  #li-b2 {width: 90px;}
+  #li-b3 {width: 70px;}
+  #li-b4 {width: 95px;}
+  #li-c {width: 55px;}
+}
+
+
+@media screen and (max-width: 500px) {
+  .right-container {
+    visibility: collapse;
+  }
+}
+
+
+.link-style-button {
+  background-color: #6C6AFD;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   border-radius: 50px;
   display: inline-block;
-  width: 70px;
+  font-size: 14px;
+  padding: 3px 10px;
   margin: 0 auto;
   text-align: center;
 }
-.link-style-two:hover {
+.link-style-button:hover {
   background-color: red;
 }
 
@@ -171,7 +216,7 @@
 .discount-information {
   display: block;
   padding: 13px 0;
-  border-top: 0.5px solid rgb(193, 193, 193);
+  border-top: 0.5px solid rgb(150, 150, 150);
   text-align: center;
   background-color: #f3f3f3;
 }
@@ -235,7 +280,7 @@ p {
 }
 
 
-.link-style-one {
+.link-style-bracket {
   color: blue;
   text-decoration: none;
   display: block;
@@ -243,7 +288,7 @@ p {
   margin: 0 auto;
   text-align: center;
 }
-.link-style-one:hover {
+.link-style-bracket:hover {
     text-decoration: underline;
 }
 
